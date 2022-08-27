@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Temparature Converter</h2>
+        <div class="fields">
+            <div class="deg-field">
+                <p class="deg-lbl">Degrees</p>
+                <input class="inp" type="number" name="degValue" id="degValue" required>
+            </div>
+                
+            <div class="type-field">
+                <p class="deg-lbl">Type</p>
+                <select class="inp" name="typeValue" id="typeValue" required>
+                    <option value="cel">Celsius</option>
+                    <option value="fah">Fahrenheit</option>
+                </select>
+            </div>
+        </div>
+        <div class="out">
+            <p class="deg-lbl">Result</p>
+            <input class="inpw" type="text" name="result" id="result" readonly>
+        </div>
+        <div class="bt">
+            <button onclick="getInputValue();">Convert</button>
+        </div>
+    </div>
+    <script>
+        function getInputValue(){
+            var type = document.getElementById("typeValue").value;
+            var num = document.getElementById("degValue").value;
+            var res = 0;
+            var fr;
+            if(type == "fah"){
+                res = ((num-32)*5)/9;
+                document.getElementById("result").value = res + "℃";
+            }else{
+                res = num * (9/5) + 32;
+                document.getElementById("result").value = res + "℉";
+            }
+        }
+    </script>
+</body>
+</html>
